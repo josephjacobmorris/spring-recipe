@@ -2,6 +2,8 @@ package com.example.springrecipe.domain;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 public class Recipe {
     private String description;
@@ -22,6 +24,18 @@ public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
+    private Set<Ingredient> ingredients;
+
+
+    public Set<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(Set<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
 
     public String getDescription() {
         return description;
