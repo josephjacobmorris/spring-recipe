@@ -1,9 +1,6 @@
 package com.example.springrecipe.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class UnitOfMeasure {
@@ -12,6 +9,9 @@ public class UnitOfMeasure {
     private Long id;
 
     private  String uom;
+
+
+    private String description;
 
     public String getUom() {
         return uom;
@@ -27,5 +27,13 @@ public class UnitOfMeasure {
 
     public Long getId() {
         return id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
