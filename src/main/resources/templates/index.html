@@ -5,6 +5,30 @@
     <title>Recipes!!!</title>
 </head>
 <body>
-
+<table>
+    <thead>
+    <tr>
+        <th> Description </th>
+        <th> Directions </th>
+        <th> Source </th>
+        <th> Servings </th>
+        <th> CookTime </th>
+        <th> PrepTime </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${recipes.empty}">
+        <td colspan="2"> No Books Available </td>
+    </tr>
+    <tr th:each="recipe : ${recipes}">
+        <td><span th:text="${recipe.description}"> Title </span></td>
+        <td><span th:text="${recipe.directions}"> Author </span></td>
+        <td><span th:text="${recipe.source}"> Author </span></td>
+        <td><span th:text="${recipe.servings}"> Author </span></td>
+        <td><span th:text="${recipe.cookTime}"> Author </span></td>
+        <td><span th:text="${recipe.prepTime}"> Author </span></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
