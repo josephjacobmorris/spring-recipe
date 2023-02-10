@@ -18,7 +18,7 @@ public class Ingredient {
     private Recipe recipe;
 
     @OneToOne
-    private UnitOfMeasure unitOfMeasure;
+    private UnitOfMeasure uom;
 
     public void setId(Long id) {
         this.id = id;
@@ -52,11 +52,11 @@ public class Ingredient {
         this.recipe = recipe;
     }
 
-    public UnitOfMeasure getUnitOfMeasure() {
-        return unitOfMeasure;
+    public UnitOfMeasure getUom() {
+        return uom;
     }
 
-    public void setUnitOfMeasure(UnitOfMeasure unitOfMeasure) {
-        this.unitOfMeasure = unitOfMeasure;
+    public void setUom(UnitOfMeasure unitOfMeasure) {
+        this.uom = unitOfMeasure;
     }
 }

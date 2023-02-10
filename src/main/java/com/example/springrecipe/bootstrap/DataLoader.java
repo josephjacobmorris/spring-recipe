@@ -37,7 +37,7 @@ public class DataLoader implements CommandLineRunner {
         Ingredient ingredient1 = new Ingredient();
         ingredient1.setAmount(BigDecimal.valueOf(10));
         Optional<UnitOfMeasure> teaspoon = unitOfMeasureRepository.findUnitOfMeasureByDescription("Teaspoon");
-        ingredient1.setUnitOfMeasure(teaspoon.get());
+        ingredient1.setUom(teaspoon.get());
         ingredient1.setDescription("ingredient1 description");
 
 

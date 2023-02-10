@@ -128,4 +128,12 @@ public class Recipe {
     public Long getId() {
         return id;
     }
+
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
+    }
 }
