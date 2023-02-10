@@ -4,6 +4,8 @@ import com.example.springrecipe.domain.Recipe;
 import com.example.springrecipe.repositories.RecipeRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class RecipeServiceImpl implements RecipeService {
     private final RecipeRepository recipeRepository;
@@ -16,4 +18,11 @@ public class RecipeServiceImpl implements RecipeService {
     public Iterable<Recipe> findAll() {
         return recipeRepository.findAll();
     }
+
+    @Override
+    public Optional<Recipe> findById(Long id) {
+        return recipeRepository.findById(id);
+    }
+
+
 }
