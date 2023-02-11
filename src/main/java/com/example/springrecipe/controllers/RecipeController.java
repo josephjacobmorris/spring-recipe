@@ -31,6 +31,16 @@ public class RecipeController {
         return "recipe/show";
     }
 
+    @RequestMapping("/update/{id}")
+    public String updateById(@PathVariable String id, Model model) {
+        Optional<Recipe> recipeId = recipeService.findById(Long.valueOf(id));
+        if (recipeId.isEmpty()) {
+            throw new IllegalStateException("No recipe with id " + id);
+        }
+        model.addAttribute("recipe", recipeService.findById(Long.valueOf(id)).get());
+        return "recipe/recipeform";
+    }
+
     @RequestMapping("/new")
     public String newRecipe( Model model) {
         model.addAttribute("recipe", new RecipeCommand());
