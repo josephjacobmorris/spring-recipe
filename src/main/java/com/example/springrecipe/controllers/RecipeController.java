@@ -1,10 +1,13 @@
 package com.example.springrecipe.controllers;
 
+import com.example.springrecipe.commands.RecipeCommand;
 import com.example.springrecipe.domain.Recipe;
 import com.example.springrecipe.service.RecipeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Optional;
@@ -26,5 +29,18 @@ public class RecipeController {
         }
         model.addAttribute("recipe", recipeService.findById(Long.valueOf(id)).get());
         return "recipe/show";
+    }
+
+    @RequestMapping("/new")
+    public String newRecipe( Model model) {
+        model.addAttribute("recipe", new RecipeCommand());
+        return "recipe/recipeform";
+    }
+
+    @PostMapping("/")
+    public String saveOrUpdate(@ModelAttribute RecipeCommand command) {
+        RecipeCommand savedRecipeCommand = recipeService.save(command);
+
+        return "redirect:/recipe/show/" + savedRecipeCommand.getId();
     }
 }

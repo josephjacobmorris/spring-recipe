@@ -32,7 +32,6 @@ public class DataLoader implements CommandLineRunner {
 
         Notes notes = new Notes();
         notes.setRecipeNotes("recipe notes");
-        notesRepository.save(notes);
 
         Ingredient ingredient1 = new Ingredient();
         ingredient1.setAmount(BigDecimal.valueOf(10));
@@ -51,9 +50,9 @@ public class DataLoader implements CommandLineRunner {
 
         recipe.setIngredients(Collections.singleton(ingredient1));
         ingredient1.setRecipe(recipe);
-        recipeRepository.save(recipe);
         notes.setRecipe(recipe);
-        notesRepository.save(notes);
+        recipeRepository.save(recipe);
+
 
     }
 }
