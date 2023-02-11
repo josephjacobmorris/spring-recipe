@@ -1,10 +1,12 @@
 package com.example.springrecipe.domain;
 
 import jakarta.persistence.*;
+import lombok.ToString;
 
 import java.math.BigDecimal;
 
 @Entity
+@ToString(exclude = {"recipe","uom"})
 public class Ingredient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

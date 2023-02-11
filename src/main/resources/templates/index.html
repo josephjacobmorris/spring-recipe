@@ -31,6 +31,7 @@
         <td><span th:text="${recipe.servings}"> Author </span></td>
         <td><span th:text="${recipe.cookTime}"> Author </span></td>
         <td><span th:text="${recipe.prepTime}"> Author </span></td>
+        <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/index'} ">Show Ingredients</a></td>
         <td><a href="#" th:href="@{'/recipe/show/' + ${recipe.id}}">View</a></td>
         <td><a href="#" th:href="@{'/recipe/update/' + ${recipe.id}}">Update</a></td>
         <td><a href="#" th:href="@{'/recipe/delete/' + ${recipe.id}}">Delete</a></td>

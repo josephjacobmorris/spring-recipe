@@ -1,10 +1,12 @@
 package com.example.springrecipe.domain;
 
 import jakarta.persistence.*;
+import lombok.ToString;
 
 import java.util.Set;
 
 @Entity
+@ToString(exclude = {"categories", "ingredients"})
 public class Recipe {
     private String description;
     private Integer prepTime;
