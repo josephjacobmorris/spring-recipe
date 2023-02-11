@@ -33,4 +33,11 @@ public class IngredientController {
         model.addAttribute("ingredients", ingredients);
         return "ingredient/index";
     }
+
+    @RequestMapping("/recipe/{id}/ingredient/show/{ingredientId}")
+    public String showIngredient(@PathVariable Long id, @PathVariable Long ingredientId, Model model) {
+        Ingredient ingredient = ingredientService.findIngredientByIdAndRecipeId(id, ingredientId);
+        model.addAttribute("ingredient", ingredient);
+        return "ingredient/show";
+    }
 }
