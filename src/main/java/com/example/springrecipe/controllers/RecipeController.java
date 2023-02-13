@@ -2,6 +2,7 @@ package com.example.springrecipe.controllers;
 
 import com.example.springrecipe.commands.RecipeCommand;
 import com.example.springrecipe.domain.Recipe;
+import com.example.springrecipe.exceptions.NotFoundException;
 import com.example.springrecipe.service.RecipeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,7 +26,7 @@ public class RecipeController {
     public String showById(@PathVariable String id, Model model) {
         Optional<Recipe> recipeId = recipeService.findById(Long.valueOf(id));
         if (recipeId.isEmpty()) {
-            throw new IllegalStateException("No recipe with id " + id);
+            throw new NotFoundException("No recipe with id " + id);
         }
         model.addAttribute("recipe", recipeService.findById(Long.valueOf(id)).get());
         return "recipe/show";
@@ -35,7 +36,7 @@ public class RecipeController {
     public String updateById(@PathVariable String id, Model model) {
         Optional<Recipe> recipeId = recipeService.findById(Long.valueOf(id));
         if (recipeId.isEmpty()) {
-            throw new IllegalStateException("No recipe with id " + id);
+            throw new NotFoundException("No recipe with id " + id);
         }
         model.addAttribute("recipe", recipeService.findById(Long.valueOf(id)).get());
         return "recipe/recipeform";
