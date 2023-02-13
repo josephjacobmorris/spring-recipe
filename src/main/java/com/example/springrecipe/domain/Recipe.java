@@ -1,19 +1,36 @@
 package com.example.springrecipe.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.ToString;
+import org.hibernate.validator.constraints.Range;
+import org.hibernate.validator.constraints.URL;
 
 import java.util.Set;
 
 @Entity
 @ToString(exclude = {"categories", "ingredients"})
 public class Recipe {
+    @Size(min =3 , max = 255)
     private String description;
+
+    @Range(min =1, max = 999)
     private Integer prepTime;
+
+    @Range(min =1, max = 999)
     private Integer cookTime;
+
+    @Range(min =1, max = 999)
     private Integer servings;
+
+    @NotBlank
     private String source;
+
+    @URL
     private String url;
+
+    @NotBlank
     private String directions;
 
     @ManyToMany

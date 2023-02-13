@@ -47,6 +47,7 @@ public class DataLoader implements CommandLineRunner {
         recipe.setCookTime(10);
         recipe.setPrepTime(20);
         recipe.setNotes(notes);
+        recipe.setSource("source");
 
         recipe.setIngredients(Collections.singleton(ingredient1));
         ingredient1.setRecipe(recipe);
